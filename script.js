@@ -211,3 +211,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
     document.querySelector(`.lang-btn[data-lang="${savedLanguage}"]`).click();
 });
+
+document.getElementById("openModal").addEventListener("click", function () {
+    let warning = document.getElementById("warning");
+
+    // Показываем предупреждение
+    warning.classList.add("show-warning");
+
+    // Через 5 секунд скрываем предупреждение
+    setTimeout(() => {
+        warning.classList.add("hide-warning");
+        
+        // Убираем классы после завершения анимации
+        setTimeout(() => {
+            warning.classList.remove("show-warning", "hide-warning");
+        }, 500);
+        
+    }, 5000);
+});
+

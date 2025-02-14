@@ -1,23 +1,39 @@
-/* Убираем отступы и паддинги для всего документа */
-html, body {
-    margin: 0;      /* Убираем внешние отступы */
-    padding: 0;     /* Убираем внутренние отступы */
-    height: 100%;   /* Устанавливаем высоту на 100% */
-    width: 100%;    /* Устанавливаем ширину на 100% */
-}
-
-/* Для мобильных устройств (ширина экрана до 768px) */
-@media only screen and (max-width: 768px) {
-    .button-container button {
-      padding: 10px 20px; /* Уменьшаем размер кнопок */
-      font-size: 16px;    /* Уменьшаем шрифт */
+    /* Убираем отступы и паддинги для всего документа */
+    html, body {
+        margin: 0;      /* Убираем внешние отступы */
+        padding: 0;     /* Убираем внутренние отступы */
+        height: 100%;   /* Устанавливаем высоту на 100% */
+        width: 100%;    /* Устанавливаем ширину на 100% */
     }
-            .hero-image {
-            width: 90%; /* Изображение на весь экран */
-            height: auto;
-            size: 150cm;
+
+    /* Для мобильных устройств (ширина экрана до 768px) */
+    @media only screen and (max-width: 768px) {
+        .button-container button {
+        padding: 10px 20px; /* Уменьшаем размер кнопок */
+        font-size: 16px;    /* Уменьшаем шрифт */
+        }
+        @media (max-width: 768px) {
+            .hero {
+                display: none; /* Полностью скрывает блок на мобильных */
             }
-  
+        }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 22px; /* или подобрать нужный размер */
+            }
+        }
+                
+        .buttons-container {
+            display: flex;
+            justify-content: space-between; /* Размещает кнопки по краям */
+            align-items: center; /* Выравнивает по вертикали */
+            padding: 10px 20px; /* Немного отступов от краев */
+            position: absolute;
+            top: 10px; /* Регулирует расстояние от верхнего края */
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
     .section-content {
       padding: 20px; /* Уменьшаем отступы */
     }
@@ -29,6 +45,11 @@ html, body {
       font-size: 14px;
     }
   }
+
+.about-popup h2 {
+    font-weight: normal;
+    font-family: arial;
+}
   
 .event-popup-content {
     position: relative;
@@ -104,6 +125,7 @@ html, body {
 .open-about-btn {
     background-color: #007BFF;
     color: white;
+    position: absolute;
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -112,9 +134,8 @@ html, body {
     cursor: pointer;
     z-index: 1000;
     transition: background-color 0.3s, transform 0.3s;
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 7px;
+    left: 7px;
 }
 
 .open-about-btn:hover {
@@ -324,7 +345,7 @@ body, html {
 
 /* Главный баннер */
 .hero {
-    background-image: url('tatpa.jpg'); /* Убедись, что здесь правильное изображение */
+    background-image: url('atsd.jpg'); /* Убедись, что здесь правильное изображение */
     background-size: cover;
     background-position: center;
     color: white;
@@ -382,6 +403,7 @@ body, html {
     font-size: 2.9em;
     margin-bottom: 50px;
     font-family: Alegreya;
+     font-size: clamp(18px, 5vw, 32px);
 }
 
 .menu-items {
@@ -502,7 +524,7 @@ footer {
 
 
 .open-event-btn {
-    position: fixed; /* Фиксированное положение */
+    position: absolute  ; /* Фиксированное положение */
     top: 10px;       /* Отступ от верхнего края */
     right: 10px;     /* Отступ от правого края */
     background-color: #007BFF; /* Цвет фона */
